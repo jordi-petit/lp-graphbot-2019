@@ -53,16 +53,19 @@ El Bot ha de contestar amb una llista de totes les possibles comandes.
 El Bot ha d'escriure el nom de l'autor del projecte i seu
 correu electrònic oficial.
 
-### `/use ⟨distance⟩ ⟨population⟩`
+### `/graph ⟨distance⟩ ⟨population⟩`
 
-Indica al bot que, a partir d'aquest moment,
-descarregui les dades de [dades/worldcitiespop.csv.gz](dades/worldcitiespop.csv.gz)
-i construeixi el graf geomètric
-amb distància
-`⟨distance⟩` (en quilòmetres) i restringint-se a poblacions amb
-`⟨population⟩` habitants o més (ignoreu les poblacions sense informació de la seva població).
+Indica al bot que, a partir d'aquest moment, utilitzi un nou graf.
 
-Heu de crear el graf geomètric eficientment (uns pocs segons).
+Per fer-ho, cal que descarregui les dades de
+[dades/worldcitiespop.csv.gz](dades/worldcitiespop.csv.gz) i construeixi el
+graf geomètric amb distància `⟨distance⟩` (en quilòmetres) i restringint-se a
+poblacions amb `⟨population⟩` habitants o més (ignoreu les poblacions sense
+informació de la seva població).
+
+Heu de crear el graf geomètric eficientment (uns pocs segons com a molt). Per
+tant, us caldrà alguna estructura de dades i/o un algorisme que heu d'implementar
+vosatres mateixos.
 
 **Nota:** Totes les comandes següents usen el darrer graf generat amb aquesta
 comanda. El graf inicial té distància 300 i població 100000.
@@ -114,7 +117,7 @@ ocurrències, trieu-ne una d'arbitrària. Podeu utilitzar la distància de
 Lavenstein per cercar de forma més robusta en presència d'errors ortogràfics.
 
 Per exemple, aquesta podria ser la
-sortida de `/route "Barcelona, es", "Zürich, ch"`:
+sortida de `/route "Barcelona, es" "Zürich, ch"`:
 
 ![](route.png)
 
@@ -159,9 +162,9 @@ no us el donaran).
 
 Aquests enllaços us seran útils per fer el vostre projecte:
 
-- [Lliçons de bots de telegram](https://lliçons.jutge.org/python/telegram.html)
+- [Lliçons de bots de Telegram](https://lliçons.jutge.org/python/telegram.html)
 
-- [Lliçons de fitxers en python](https://lliçons.jutge.org/python/fitxers-i-formats.html)
+- [Lliçons de fitxers en Python](https://lliçons.jutge.org/python/fitxers-i-formats.html)
 
 - [Tutorial de NetworkX](https://networkx.github.io/documentation/stable/tutorial.html)
 
