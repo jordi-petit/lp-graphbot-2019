@@ -2,21 +2,18 @@
 
 # GraphBot
 
-El projecte GraphBot per GEI-LP (edició 2019)
-
-![](graphbot.png)
-
+El projecte GraphBot per GEI-LP (edició 2019).
 
 
 ## Introducció
 
 Aquesta pàgina descriu el projecte GraphBot, que correspon a la pràctica de
 Python pel curs de primavera 2019 de LP al GEI. La vostra tasca consisteix en
-implementar un Bot de Telegram que constesti textualment i gràficament
-preguntes relacionades amb grafs geomètrics definits sobre les ciutats de tota
-la Terra.
+implementar un Bot de Telegram que constesti textualment i gràficament (amb
+mapes) preguntes relacionades amb grafs geomètrics definits sobre uns tres
+milions de poblacions de tota la Terra.
 
-Aquí en teniu una petita demostració: (FAKE!!!)
+Aquí en teniu una petita demostració:
 
 <center><img src='demo.png' width='400'></center>
 
@@ -40,106 +37,115 @@ subjectes en aquesta [llicència](dades/LICENSE.txt).
 
 El vostre Bot ha d'entendre i contestar correctament les comandes següents:
 
-### `/start`
+- `/start`
 
-Inicia la conversa amb el Bot.
+    Inicia la conversa amb el Bot.
 
-### `/help`
+- `/help`
 
-El Bot ha de contestar amb una llista de totes les possibles comandes.
+    El Bot ha de contestar amb una llista de totes les possibles comandes i una breu
+    documentació sobre el seu propòsit i ús.
 
-### `/author`
+- `/author`
 
-El Bot ha d'escriure el nom de l'autor del projecte i seu
-correu electrònic oficial.
+    El Bot ha d'escriure el nom complet de l'autor del projecte i seu
+    correu electrònic oficial de la facultat.
 
-### `/graph ⟨distance⟩ ⟨population⟩`
+- `/graph ⟨distance⟩ ⟨population⟩`
 
-Indica al bot que, a partir d'aquest moment, utilitzi un nou graf.
+    Indica al bot que, a partir d'aquest moment, utilitzi un nou graf.
 
-Per fer-ho, cal que descarregui les dades de
-[dades/worldcitiespop.csv.gz](dades/worldcitiespop.csv.gz) i construeixi el
-graf geomètric amb distància `⟨distance⟩` (en quilòmetres) i restringint-se a
-poblacions amb `⟨population⟩` habitants o més (ignoreu les poblacions sense
-informació de la seva població).
+    Per fer-ho, cal que descarregui les dades de
+    [https://github.com/jordi-petit/lp-graphbot-2019/blob/master/dades/worldcitiespop.csv.gz?raw=true](https://github.com/jordi-petit/lp-graphbot-2019/blob/master/dades/worldcitiespop.csv.gz?raw=true) i construeixi el
+    graf geomètric amb distància `⟨distance⟩` (en quilòmetres) i restringint-se a
+    poblacions amb `⟨population⟩` habitants o més (cal ignorar les poblacions sense
+    informació sobre la seva població).
 
-Heu de crear el graf geomètric eficientment (uns pocs segons com a molt). Per
-tant, us caldrà alguna estructura de dades i/o un algorisme que heu d'implementar
-vosatres mateixos.
-
-**Nota:** Totes les comandes següents usen el darrer graf generat amb aquesta
-comanda. El graf inicial té distància 300 i població 100000.
-
-### `/nodes`
-
-Escriu el nombre de nodes en el graf.
-
-### `/edges`
-
-Escriu el nombre d'arestes en el graf.
-
-### `/components`
-
-Escriu el nombre de components connexs en el graf.
-
-### `/plotpop ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
-
-Mostra una mapa amb totes les ciutats del graf a distància menor o igual que
-`⟨dist⟩` de `⟨lat⟩,⟨lon⟩`. Les coordenades són opcionals: si no es dónen, es
-refereixen a la posició de l'usuari (aquest l'ha enviar prèviament). El format
-de les coordenades és el mateix que al fitxer de dades. Cada ciutat es mostra
-amb un cercle, de radi proporcional a la seva població.
-
-Per exemple:
-
-![](plot-population.png)
-
-### `/plotgraph ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
-
-Mostra una mapa amb totes les ciutats del graf
-a distància menor o igual que `⟨dist⟩` de `⟨lat⟩,⟨lon⟩`
-i les arestes que es connecten.
-Les coordenades són opcionals: si no es dónen, es refereixen a la posició
-de l'usuari.
-
-Per exemple:
-
-![](plot-graph.png)
-
-### `/route ⟨src⟩ ⟨dst⟩`
-
-Mostra una mapa amb
-les arestes del camí més curt per anar entre dues ciutats
-`⟨src⟩` i `⟨dst⟩`.
-
-La sintàxi de les ciutats és `"Nom, codi_país"`.  En cas de múltiples
-ocurrències, trieu-ne una d'arbitrària. Podeu utilitzar la distància de
-Lavenstein per cercar de forma més robusta en presència d'errors ortogràfics.
-
-Per exemple, aquesta podria ser la
-sortida de `/route "Barcelona, es" "Zürich, ch"`:
-
-![](route.png)
+    **Nota:** Totes les comandes posterior usen el darrer graf generat amb aquesta
+    comanda. Per defecte, cal començar amb un graf inicial amb distància 300 i població 100000.
 
 
-### Altres comandes
+- `/nodes`
+
+    Escriu el nombre de nodes en el graf.
+
+- `/edges`
+
+    Escriu el nombre d'arestes en el graf.
+
+- `/components`
+
+    Escriu el nombre de components connexs en el graf.
+
+- `/plotpop ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
+
+    Mostra una mapa amb totes les ciutats del graf a distància menor o igual que
+    `⟨dist⟩` de `⟨lat⟩,⟨lon⟩`. Les coordenades són opcionals: si no es dónen, es
+    refereixen a la posició de l'usuari (aquest l'ha enviar prèviament). El format
+    de les coordenades és el mateix que al fitxer de dades. Cada ciutat es mostra
+    amb un cercle, de radi proporcional a la seva població.
+
+    Per exemple:
+
+    ![](plot-population.png)
+
+- `/plotgraph ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
+
+    Mostra una mapa amb totes les ciutats del graf
+    a distància menor o igual que `⟨dist⟩` de `⟨lat⟩,⟨lon⟩`
+    i les arestes que es connecten.
+    Les coordenades són opcionals: si no es dónen, es refereixen a la posició
+    de l'usuari.
+
+    Per exemple:
+
+    ![](plot-graph.png)
+
+- `/route ⟨src⟩ ⟨dst⟩`
+
+    Mostra una mapa amb
+    les arestes del camí més curt per anar entre dues ciutats
+    `⟨src⟩` i `⟨dst⟩`.
+
+    La sintàxi de les ciutats és `"Nom, codi_país"`.  En cas de múltiples
+    ocurrències, trieu-ne una d'arbitrària. Podeu utilitzar la distància de
+    Lavenstein per cercar de forma més robusta en presència d'errors ortogràfics.
+
+    Per exemple, aquesta podria ser la
+    sortida de `/route "Barcelona, es" "Zurich, ch"`:
+
+    ![](route.png)
+
 
 Si ho voleu, podeu definir comandes addicionals que facin el
 vostre projecte més ric i interessant a nivell tècnic i algorísmic.
 Documenteu-les adequadament.
 
-### Errors
-
-Tracteu els errors de la manera més raonable possible.
-En particular, el vostre programa no s'hauria d'espatllar per peticions
-incorrectes dels usuaris.
+Tracteu els errors de manera raonable. En particular, el vostre programa no
+s'hauria d'espatllar per peticions incorrectes dels usuaris.
 
 
 ## Arquitectura
 
-És la vostra responsabilitat escollir l'arquitectura més raonable pel
+És la vostra responsabilitat escollir l'arquitectura més adient pel
 sistema, tenint en compte que les funcions de tractament de dades i les
 funcions del Bot de Telegram han d'estar clarament diferenciades.
+
+
+## Eficiència
+
+Feu que la vostra aplicació sigui usable. En particular, haureu de crear el
+graf geomètric eficientment (uns pocs segons com a molt).  L'algorisme
+quadràtic obvi no és una solució vàlida. Per tant, us caldrà alguna estructura
+de dades i/o un algorisme que heu d'implementar vosatres mateixos.
+
+Igualment, segurament haureu d'introduir límits raonables per la distància
+i/o la població (si són massa petits caldria crear un graf molt gran).
+
+Tingueu en compte que heu de descarregar les dades remotament. Amb
+connexions lentes això pot prendre una mica de temps. Tingueu també en compte
+que la generació de mapes es fa remotament.  Amb una conexió lenta pot trigar
+en generar-los. Telegram tampoc envia les imatges massa ràpid. No us en preocupeu.
 
 
 ## Llibreries
