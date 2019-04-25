@@ -82,7 +82,7 @@ Escriu el nombre d'arestes en el graf.
 
 Escriu el nombre de components connexs en el graf.
 
-### `/plot-population ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
+### `/plotpop ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
 
 Mostra una mapa amb totes les ciutats del graf a distància menor o igual que
 `⟨dist⟩` de `⟨lat⟩,⟨lon⟩`. Les coordenades són opcionals: si no es dónen, es
@@ -94,7 +94,7 @@ Per exemple:
 
 ![](plot-population.png)
 
-### `/plot-graph ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
+### `/plotgraph ⟨dist⟩ [⟨lat⟩ ⟨lon⟩]`
 
 Mostra una mapa amb totes les ciutats del graf
 a distància menor o igual que `⟨dist⟩` de `⟨lat⟩,⟨lon⟩`
