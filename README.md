@@ -1,5 +1,3 @@
-> ESBORRANY! NO UTILITZEU!!!
-
 # GraphBot
 
 El projecte GraphBot per GEI-LP (edició 2019).
@@ -184,7 +182,9 @@ generi uns fitxers `*.py`, un fitxer `requirements.txt` i un
 fitxer `README.md`. Res més. Sense directoris.
 
 Els vostres fitxers de codi en Python han de seguir
-[les regles d'estíl PEP8](https://www.python.org/dev/peps/pep-0008/). Podeu
+[les regles d'estíl PEP8](https://www.python.org/dev/peps/pep-0008/),
+tot i que podeu oblidar les restriccions sobre la llargada màxima
+de les línies. Podeu
 utilitzar el paquet `pep8` o http://pep8online.com/ per assegurar-vos
 que seguiu aquestes regles d'estíl.
 L'ús de tabuladors en el codi queda
@@ -197,7 +197,7 @@ El projecte també ha de contenir un fitxer `requirements.txt`
 amb les llibreries que utilitza el vostre projecte.
 Vegeu, per exemple, https://pip.pypa.io/en/stable/user_guide/#requirements-files.
 
-El termini de lliurament és el XXXXXX.
+El termini de lliurament és el divendres 7 de juny a les 23:59.
 
 
 ## Consells
