@@ -176,7 +176,7 @@ Aquests enllaços us seran útils per fer el vostre projecte:
 
 ## Lliurament
 
-Heu de lliurar la vostra pràctica per correu electrònic al Racó.
+Heu de lliurar la vostra pràctica al Racó.
 Només heu de lliurar un fitxer ZIP que, al descomprimir-se
 generi uns fitxers `*.py`, un fitxer `requirements.txt` i un
 fitxer `README.md`. Res més. Sense directoris.
